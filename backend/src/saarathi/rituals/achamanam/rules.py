@@ -1,0 +1,12 @@
+"""Returns the fixed Achamanam text for the requested lang. No dynamic
+slots — unlike Sankalpam/Pravara, nothing here varies per request."""
+
+from __future__ import annotations
+
+from saarathi.core.lang import validate_lang
+from saarathi.rituals.achamanam.template import ACHAMANAM_TEMPLATES
+
+
+def build_achamanam(*, lang: str = "te") -> str:
+    validate_lang(lang)
+    return ACHAMANAM_TEMPLATES[lang]
